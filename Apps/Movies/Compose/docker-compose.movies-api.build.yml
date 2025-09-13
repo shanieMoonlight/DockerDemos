@@ -1,0 +1,20 @@
+services:
+  redis-server: # Add this for debugging
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    restart: on-failure
+  movies-api:
+    image: movies-api:latest
+    build:
+      context: ../..               # <-- include repo root so Directory.Packages.props is available
+      dockerfile: Apps/Movies/Movies.API/Dockerfile
+      args:
+        BUILD_CONFIGURATION: Release
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - APP_UID=1000
+      - ASPNETCORE_URLS=http://+:8080
+      # - ASPNETCORE_URLS=http://+:8080;https://+:8081

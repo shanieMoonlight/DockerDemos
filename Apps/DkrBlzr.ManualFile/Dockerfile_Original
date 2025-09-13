@@ -1,0 +1,33 @@
+## Run from solution root
+
+
+# Get the .Net image that we'll need to build and run the app
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS publish
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY Directory.Packages.props .
+COPY ./DkrBlzr.ManualFile/DkrBlzr.ManualFile.csproj ./DkrBlzr.ManualFile/
+# Restore Dependencies 
+RUN dotnet restore "./DkrBlzr.ManualFile/DkrBlzr.ManualFile.csproj"
+
+# Copy everything else and build app
+COPY ./DkrBlzr.ManualFile/ ./DkrBlzr.ManualFile/
+COPY ./DockerDemos.sln .
+
+# Publish the app
+RUN dotnet publish "./DkrBlzr.ManualFile/DkrBlzr.ManualFile.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+# New/Smaller layer to run the app
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
+
+#Copy the published app to the new layer
+COPY --from=publish /app/publish ./app
+
+
+
+# CMD ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["dotnet", "app/DkrBlzr.ManualFile.dll"]
+
+
+## docker build -t dkr_blzr:1.0.0 -f ./DkrBlzr.ManualFile/Dockerfile .
+# docker run --name dkr_blzr_ctr -d -p 9999:8080 dkr_blzr:1.0.0

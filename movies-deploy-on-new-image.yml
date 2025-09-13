@@ -1,0 +1,102 @@
+name: Movies- Deploy on new image
+
+on:
+  repository_dispatch:
+    types: [new-image]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Runs a single command using the runners shell
+    - name: Run a one-line script
+      run: echo Hello, world! Something Triggered the deploy workflow!
+
+    - name: Inspect event file (debug)
+      run: |
+        echo "GITHUB_EVENT_PATH=$GITHUB_EVENT_PATH"
+        echo "Event file contents:"
+        jq . "$GITHUB_EVENT_PATH" || (echo "failed to jq event" && cat "$GITHUB_EVENT_PATH")
+
+    - name: Parse payload
+      id: parse
+      run: |
+        # Parse from the event file rather than a non-standard env var
+        service=$(jq -r .client_payload.service < "$GITHUB_EVENT_PATH")
+        repo=$(jq -r .client_payload.repository < "$GITHUB_EVENT_PATH")
+        digest=$(jq -r .client_payload.digest < "$GITHUB_EVENT_PATH")
+        echo "service=$service" >> $GITHUB_OUTPUT
+        echo "repo=$repo" >> $GITHUB_OUTPUT
+        echo "digest=$digest" >> $GITHUB_OUTPUT
+
+    - name: Get latest Docker CLIENT image tag
+      id: get_tag_api
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      run: |
+        # Use Basic Authentication with username and PAT for the Hub API
+        TAG_API_LATEST=$(curl -s -u "${DOCKER_USERNAME}:${DOCKERHUB_TOKEN}" "https://hub.docker.com/v2/repositories/shaneyboy/movies-api/tags/?page_size=100" | \
+        jq -r '.results | sort_by(.last_updated) | .[-1].name')
+        
+        if [ -z "$TAG_API_LATEST" ]; then
+          echo "Error: Could not retrieve latest tag from Docker Hub. Check repository name and credentials."
+          exit 1
+        fi
+
+        echo "Latest tag found: $TAG_API_LATEST"
+        echo "TAG_API_LATEST=$TAG_API_LATEST" >> $GITHUB_OUTPUT
+
+    - name: Get latest Docker API image tag
+      id: get_tag_client
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      run: |
+        # Use Basic Authentication with username and PAT for the Hub API
+        TAG_API_CLIENT=$(curl -s -u "${DOCKER_USERNAME}:${DOCKERHUB_TOKEN}" "https://hub.docker.com/v2/repositories/shaneyboy/movies-client-static/tags/?page_size=100" | \
+        jq -r '.results | sort_by(.last_updated) | .[-1].name')
+        
+        if [ -z "$TAG_API_CLIENT" ]; then
+          echo "Error: Could not retrieve latest tag from Docker Hub. Check repository name and credentials."
+          exit 1
+        fi
+
+        echo "Latest tag found: $TAG_API_CLIENT"
+        echo "TAG_API_CLIENT=$TAG_API_CLIENT" >> $GITHUB_OUTPUT
+
+
+    
+
+    # - name: Checkout repo
+    #   uses: actions/checkout@v4
+
+    # - name: Render docker-compose (local)
+    #   run: |
+    #     SERVICE=${{ steps.parse.outputs.service }}
+    #     REPO=${{ steps.parse.outputs.repo }}
+    #     DIGEST=${{ steps.parse.outputs.digest }}
+    #     # Replace placeholder image line in template; produces docker-compose.yml
+    #     sed "s|IMAGE_PLACEHOLDER_${SERVICE}|${REPO}@${DIGEST}|g" templates/docker-compose.template.yml > docker-compose.yml
+    #     echo "Rendered docker-compose preview:"
+    #     sed -n '1,120p' docker-compose.yml
+
+    # - name: Deploy to host via SSH
+    #   uses: appleboy/ssh-action@v0.1.7
+    #   with:
+    #     host: ${{ secrets.DEPLOY_HOST }}
+    #     username: ${{ secrets.DEPLOY_USER }}
+    #     key: ${{ secrets.DEPLOY_SSH_KEY }}
+    #     port: ${{ secrets.DEPLOY_SSH_PORT || 22 }}
+    #     script: |
+    #       set -e
+    #       mkdir -p /opt/movies-deploy
+    #       cat > /opt/movies-deploy/docker-compose.yml <<'EOF'
+    #       $(sed 's/$/\\n/' docker-compose.yml)
+    #       EOF
+    #       cd /opt/movies-deploy
+    #       docker compose pull
+    #       docker compose up -d --remove-orphans
+    #       # optional health check / status
+    #       docker compose ps

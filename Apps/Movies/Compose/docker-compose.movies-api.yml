@@ -1,0 +1,7 @@
+services:
+  movies-api: 
+    image: shaneyboy/movies-api:latest
+    ports:
+      - "80:8080"
+    environment:
+      - APP_UID=1000

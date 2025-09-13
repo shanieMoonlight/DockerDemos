@@ -1,0 +1,23 @@
+services:
+  movies-client: 
+    image: movies_static:latest
+    ports:
+      - "5001:80" #Nginx Port is 80
+    restart: on-failure
+
+  movies-api: 
+    image: movies-api:latest
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - APP_UID=1000
+    restart: on-failure
+
+  redis-server: 
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    restart: on-failure
+
+

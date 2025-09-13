@@ -1,0 +1,80 @@
+name: Movies - Deploy Manual
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install jq
+      run: sudo apt-get update && sudo apt-get install -y jq
+
+    - name: Make script executable
+      run: chmod +x .github/scripts/get-latest-tag.sh
+
+    - name: Fetch tags, render compose
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      run: |
+        set -euo pipefail
+
+        mkdir -p state
+
+        # Define services as "name|repo"
+        services=(
+          "movies-api|shaneyboy/movies-api"
+          "movies-client|shaneyboy/movies-client-static"
+        )
+
+        for entry in "${services[@]}"; do
+          name=${entry%%|*}
+          repo=${entry##*|}
+          echo "==> Processing service: $name (repo: $repo)"
+
+          # Call the helper script (inherits DOCKER_USERNAME/DOCKERHUB_TOKEN from env)
+          out=$(DOCKER_USERNAME="$DOCKER_USERNAME" DOCKERHUB_TOKEN="$DOCKERHUB_TOKEN" ./.github/scripts/get-latest-tag.sh "$repo")
+
+          mkdir -p state
+          echo "$out" > state/"${name}".json
+
+          echo "Saved state/${name}.json:"
+          jq . state/"${name}".json
+        done
+
+        # Build image references (prefer digest, fallback to tag)
+        API_REF=$(jq -r 'if (.digest // "") != "" then .repository + "@" + .digest else .repository + ":" + .tag end' state/movies-api.json)
+        CLIENT_REF=$(jq -r 'if (.digest // "") != "" then .repository + "@" + .digest else .repository + ":" + .tag end' state/movies-client.json)
+
+        echo "Selected images:"
+        echo "API  -> $API_REF"
+        echo "CLIENT -> $CLIENT_REF"
+
+        # Render the docker-compose from template (ensure template exists in repo)
+        sed "s|IMAGE_PLACEHOLDER_movies-api|${API_REF}|g; s|IMAGE_PLACEHOLDER_movies-client|${CLIENT_REF}|g" .github/templates/movies/docker-compose.template.yml > docker-compose.yml
+
+        echo "Rendered docker-compose (preview):"
+        sed -n '1,200p' docker-compose.yml
+
+    # Optional: deploy to server (SSH or SSM). Keep disabled/placeholder until you're ready.
+    # - name: Deploy to server via SSH
+    #   uses: appleboy/ssh-action@v0.1.7
+    #   with:
+    #     host: ${{ secrets.DEPLOY_HOST }}
+    #     username: ${{ secrets.DEPLOY_USER }}
+    #     key: ${{ secrets.DEPLOY_SSH_KEY }}
+    #     port: ${{ secrets.DEPLOY_SSH_PORT || 22 }}
+    #     script: |
+    #       set -e
+    #       mkdir -p /opt/movies-deploy
+    #       cat > /opt/movies-deploy/docker-compose.yml <<'EOF'
+    #       $(sed 's/$/\\n/' docker-compose.yml)
+    #       EOF
+    #       cd /opt/movies-deploy
+    #       docker compose pull
+    #       docker compose up -d --remove-orphans
+    #       docker compose ps

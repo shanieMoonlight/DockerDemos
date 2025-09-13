@@ -1,0 +1,6 @@
+services:
+  movies-client: 
+    image: movies_static:latest
+    ports:
+      - "5001:80" #Nginx
+    restart: on-failure

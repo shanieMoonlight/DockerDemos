@@ -1,0 +1,146 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{B0AE4686-F933-4BE0-8B54-5935F247854F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DkrBlzr.AutoFile", "Apps\DkrBlzr.AutoFile\DkrBlzr.AutoFile.csproj", "{C5C3A1E5-1216-F12E-A40E-C38776CCCD34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DkrBlzr.ManualFile", "Apps\DkrBlzr.ManualFile\DkrBlzr.ManualFile.csproj", "{E1935DB6-1229-FB6E-D9B7-94FCB3FE2803}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DkrConsoleApp", "Apps\DkrConsoleApp\DkrConsoleApp.csproj", "{5715104B-D372-1ACC-BD4A-1CC190938D8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DkrDemo1", "Apps\DkrDemo1\DkrDemo1.csproj", "{6BCD882A-A8DB-8528-5CF7-50E849FCAAC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DkrMvc", "Apps\DkrMvc\DkrMvc.csproj", "{C0DEEE25-28AD-8015-D3D1-E63C6552B297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DkrWebApi.AutoFile", "Apps\DkrWebApi.AutoFile\DkrWebApi.AutoFile.csproj", "{D67A2C51-A838-0EAD-047B-D508865A909D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DkrWebApi.ManualFile", "Apps\DkrWebApi.ManualFile\DkrWebApi.ManualFile.csproj", "{CF4EEBE2-09B0-E81C-3C7E-3F7CAF7313B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.API", "Apps\Movies\Movies.API\Movies.API.csproj", "{E53C6368-1E23-42DD-A048-BE7EAC372A87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Movies", "Movies", "{BEEF7F74-FBBA-47B1-83A5-7180F076CE94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Shared", "Apps\Movies\Movies.Shared\Movies.Shared.csproj", "{21F98FDF-1F04-430E-81C5-42850B977B24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Persistence.Ef", "Apps\Movies\Movies.Persistence.Ef\Movies.Persistence.Ef.csproj", "{0EA3A8EA-E6F0-4B04-B308-B57D8C63E907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Persistence.Cache.Redis", "Apps\Movies\Movies.Persistence.Cache.Redis\Movies.Persistence.Cache.Redis.csproj", "{7F53E261-04E9-41C9-B772-49860E22623B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Persistence.Cache.Memory", "Apps\Movies\Movies.Persistence.Cache.Memory\Movies.Persistence.Cache.Memory.csproj", "{5D6A2F18-063D-4378-B2FC-100971CD358B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6BA3094C-0713-49B2-AD94-C1B7F5106570}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{FC94CF9F-005B-4DE6-8DB2-B7D5D9AAD8AF}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\movies-docker-image.yml = .github\workflows\movies-docker-image.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compose", "Compose", "{A48B920B-6D37-44AA-A50B-8CB1295D068A}"
+	ProjectSection(SolutionItems) = preProject
+		Apps\Movies\Compose\docker-compose.movies-api.build.secrets.yml = Apps\Movies\Compose\docker-compose.movies-api.build.secrets.yml
+		Apps\Movies\Compose\docker-compose.movies-api.build.yml = Apps\Movies\Compose\docker-compose.movies-api.build.yml
+		Apps\Movies\Compose\docker-compose.movies-api.yml = Apps\Movies\Compose\docker-compose.movies-api.yml
+		Apps\Movies\Compose\docker-compose.movies-client.build.yml = Apps\Movies\Compose\docker-compose.movies-client.build.yml
+		Apps\Movies\Compose\docker-compose.movies.secrets.yml = Apps\Movies\Compose\docker-compose.movies.secrets.yml
+		Apps\Movies\Compose\docker-compose.movies.yml = Apps\Movies\Compose\docker-compose.movies.yml
+		Apps\Movies\Compose\movies-deploy-manual.yml = Apps\Movies\Compose\movies-deploy-manual.yml
+		Apps\Movies\Compose\movies-deploy-on-new-image.yml = Apps\Movies\Compose\movies-deploy-on-new-image.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{09B708BE-1E0E-40B2-AD57-2DDF6C14007D}"
+	ProjectSection(SolutionItems) = preProject
+		Apps\Movies\Compose\API\.env = Apps\Movies\Compose\API\.env
+		Apps\Movies\Compose\API\.env.secrets = Apps\Movies\Compose\API\.env.secrets
+		Apps\Movies\Compose\API\docker-compose.yml = Apps\Movies\Compose\API\docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5C3A1E5-1216-F12E-A40E-C38776CCCD34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C3A1E5-1216-F12E-A40E-C38776CCCD34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C3A1E5-1216-F12E-A40E-C38776CCCD34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C3A1E5-1216-F12E-A40E-C38776CCCD34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1935DB6-1229-FB6E-D9B7-94FCB3FE2803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1935DB6-1229-FB6E-D9B7-94FCB3FE2803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1935DB6-1229-FB6E-D9B7-94FCB3FE2803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1935DB6-1229-FB6E-D9B7-94FCB3FE2803}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5715104B-D372-1ACC-BD4A-1CC190938D8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5715104B-D372-1ACC-BD4A-1CC190938D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5715104B-D372-1ACC-BD4A-1CC190938D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5715104B-D372-1ACC-BD4A-1CC190938D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BCD882A-A8DB-8528-5CF7-50E849FCAAC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BCD882A-A8DB-8528-5CF7-50E849FCAAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BCD882A-A8DB-8528-5CF7-50E849FCAAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BCD882A-A8DB-8528-5CF7-50E849FCAAC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0DEEE25-28AD-8015-D3D1-E63C6552B297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0DEEE25-28AD-8015-D3D1-E63C6552B297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0DEEE25-28AD-8015-D3D1-E63C6552B297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0DEEE25-28AD-8015-D3D1-E63C6552B297}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D67A2C51-A838-0EAD-047B-D508865A909D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D67A2C51-A838-0EAD-047B-D508865A909D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D67A2C51-A838-0EAD-047B-D508865A909D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D67A2C51-A838-0EAD-047B-D508865A909D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF4EEBE2-09B0-E81C-3C7E-3F7CAF7313B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF4EEBE2-09B0-E81C-3C7E-3F7CAF7313B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF4EEBE2-09B0-E81C-3C7E-3F7CAF7313B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF4EEBE2-09B0-E81C-3C7E-3F7CAF7313B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E53C6368-1E23-42DD-A048-BE7EAC372A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E53C6368-1E23-42DD-A048-BE7EAC372A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E53C6368-1E23-42DD-A048-BE7EAC372A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E53C6368-1E23-42DD-A048-BE7EAC372A87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21F98FDF-1F04-430E-81C5-42850B977B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21F98FDF-1F04-430E-81C5-42850B977B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21F98FDF-1F04-430E-81C5-42850B977B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21F98FDF-1F04-430E-81C5-42850B977B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EA3A8EA-E6F0-4B04-B308-B57D8C63E907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EA3A8EA-E6F0-4B04-B308-B57D8C63E907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EA3A8EA-E6F0-4B04-B308-B57D8C63E907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EA3A8EA-E6F0-4B04-B308-B57D8C63E907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F53E261-04E9-41C9-B772-49860E22623B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F53E261-04E9-41C9-B772-49860E22623B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F53E261-04E9-41C9-B772-49860E22623B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F53E261-04E9-41C9-B772-49860E22623B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D6A2F18-063D-4378-B2FC-100971CD358B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6A2F18-063D-4378-B2FC-100971CD358B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6A2F18-063D-4378-B2FC-100971CD358B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6A2F18-063D-4378-B2FC-100971CD358B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C5C3A1E5-1216-F12E-A40E-C38776CCCD34} = {B0AE4686-F933-4BE0-8B54-5935F247854F}
+		{E1935DB6-1229-FB6E-D9B7-94FCB3FE2803} = {B0AE4686-F933-4BE0-8B54-5935F247854F}
+		{5715104B-D372-1ACC-BD4A-1CC190938D8F} = {B0AE4686-F933-4BE0-8B54-5935F247854F}
+		{6BCD882A-A8DB-8528-5CF7-50E849FCAAC1} = {B0AE4686-F933-4BE0-8B54-5935F247854F}
+		{C0DEEE25-28AD-8015-D3D1-E63C6552B297} = {B0AE4686-F933-4BE0-8B54-5935F247854F}
+		{D67A2C51-A838-0EAD-047B-D508865A909D} = {B0AE4686-F933-4BE0-8B54-5935F247854F}
+		{CF4EEBE2-09B0-E81C-3C7E-3F7CAF7313B8} = {B0AE4686-F933-4BE0-8B54-5935F247854F}
+		{E53C6368-1E23-42DD-A048-BE7EAC372A87} = {BEEF7F74-FBBA-47B1-83A5-7180F076CE94}
+		{BEEF7F74-FBBA-47B1-83A5-7180F076CE94} = {B0AE4686-F933-4BE0-8B54-5935F247854F}
+		{21F98FDF-1F04-430E-81C5-42850B977B24} = {BEEF7F74-FBBA-47B1-83A5-7180F076CE94}
+		{0EA3A8EA-E6F0-4B04-B308-B57D8C63E907} = {BEEF7F74-FBBA-47B1-83A5-7180F076CE94}
+		{7F53E261-04E9-41C9-B772-49860E22623B} = {BEEF7F74-FBBA-47B1-83A5-7180F076CE94}
+		{5D6A2F18-063D-4378-B2FC-100971CD358B} = {BEEF7F74-FBBA-47B1-83A5-7180F076CE94}
+		{FC94CF9F-005B-4DE6-8DB2-B7D5D9AAD8AF} = {6BA3094C-0713-49B2-AD94-C1B7F5106570}
+		{A48B920B-6D37-44AA-A50B-8CB1295D068A} = {BEEF7F74-FBBA-47B1-83A5-7180F076CE94}
+		{09B708BE-1E0E-40B2-AD57-2DDF6C14007D} = {A48B920B-6D37-44AA-A50B-8CB1295D068A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {498F227E-F743-4CF7-B4DA-552D5B7735E8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,3 @@
+FROM base_image
+
+COPY ./outside/  /inside

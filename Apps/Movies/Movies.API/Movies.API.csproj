@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>f3dd4afd-1fd1-4125-a23c-d21fee8a9073</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\..</DockerfileContext>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
+		<PackageReference Include="Scalar.AspNetCore" />
+		<PackageReference Include="StackExchange.Redis" />
+		<PackageReference Include="StronglyTypedAppSettings" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+		<PackageReference Include="NeoSmart.AsyncLock" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Movies.Persistence.Cache.Memory\Movies.Persistence.Cache.Memory.csproj" />
+		<ProjectReference Include="..\Movies.Persistence.Cache.Redis\Movies.Persistence.Cache.Redis.csproj" />
+		<ProjectReference Include="..\Movies.Persistence.Ef\Movies.Persistence.Ef.csproj" />
+		<ProjectReference Include="..\Movies.Shared\Movies.Shared.csproj" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<AdditionalFiles Include="appsettings.json" />
+	</ItemGroup>
+
+</Project>

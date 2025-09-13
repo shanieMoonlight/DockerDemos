@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DkrConsoleApp": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+services:
+  movies-api: 
+    image: shaneyboy/movies-api:latest
+    ports:
+      - "80:8080"
+    environment:
+      - APP_UID=1000
+      - ConnectionStrings__PgDb=${ConnectionStrings__PgDb}
+      - APP_UID=${APP_UID}

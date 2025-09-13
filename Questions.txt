@@ -1,0 +1,11 @@
+"C:\Program Files\Docker\Docker\resources\bin\docker.exe" build -f "C:\Users\Shaneyboy\source\repos\Docker\DkrWebApi.AutoFile\Dockerfile" --force-rm -t dkrwebapiautofile:dev --label "com.microsoft.created-by=visual-studio" --label "com.microsoft.visual-studio.project-name=DkrWebApi.AutoFile" --target base  --build-arg "BUILD_CONFIGURATION=Debug" --build-arg "LAUNCHING_FROM_VS=true" "C:\Users\Shaneyboy\source\repos\Docker" 
+
+
+Questions:
+
+Difference between Arg an env
+
+SDK vs Runtime
+
+
+Is this necessary : •	ARG BUILD_CONFIGURATION=Release: Again sets the build configuration.  (line 24)

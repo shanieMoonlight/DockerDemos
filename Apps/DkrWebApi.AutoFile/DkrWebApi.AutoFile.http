@@ -1,0 +1,6 @@
+@DkrWebApi.AutoFile_HostAddress = http://localhost:5197
+
+GET {{DkrWebApi.AutoFile_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

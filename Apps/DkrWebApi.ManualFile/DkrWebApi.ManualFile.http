@@ -1,0 +1,6 @@
+@DkrWebApi.ManualFile_HostAddress = http://localhost:5262
+
+GET {{DkrWebApi.ManualFile_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

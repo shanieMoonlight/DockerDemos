@@ -1,0 +1,9 @@
+services:
+  movies_static:
+    build:
+      context: C:/Users/Shaneyboy/VsCode/DockerCourseProjects/movies
+      dockerfile: Dockerfile.static
+    image: movies_static:latest
+    ports:
+      - 5001:80 # Map host port to container port (NGINX=80)
+    restart: unless-stopped
