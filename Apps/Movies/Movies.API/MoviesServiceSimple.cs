@@ -49,4 +49,10 @@ public class MoviesServiceSimple(ILogger<MoviesServiceSimple> _logger) : IMovies
         return Task.CompletedTask;
     }
 
+    //--------------------//
+
+    public Task<Type> GetRepoTypeAsync() =>
+        Task.FromResult(typeof(byte));
+
+
 }//Cls

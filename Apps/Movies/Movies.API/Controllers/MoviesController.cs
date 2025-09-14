@@ -48,6 +48,16 @@ public class MoviesController(
 
     //---------------------------//
 
+    [HttpGet("repo")]
+    public async Task<ActionResult<Type>> RepoTypeAsync()
+    {
+        var type = await _moviesService.GetRepoTypeAsync();
+        return Ok(type.FullName);
+    }
+
+
+    //---------------------------//
+
     [HttpGet("test2")]
     public ActionResult<IEnumerable<Movie>> Hello() => 
         Ok("Hello");

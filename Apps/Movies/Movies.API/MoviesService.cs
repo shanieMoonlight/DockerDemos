@@ -17,6 +17,12 @@ public class MoviesService(
     }
 
     //--------------------//
+
+    public Task<Type> GetRepoTypeAsync() => 
+        Task.FromResult(_repo.GetType());
+
+    //--------------------//
+
     public async Task<Movie?> GetMovieAsync(int id)
     {
         _logger.LogInformation("Getting movie with id {MovieId} from MoviesService", id);

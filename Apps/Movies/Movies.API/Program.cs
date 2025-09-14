@@ -65,10 +65,10 @@ _services.AddMoviesPersistenceEf(config =>
     config.ConnectionString = dbConnection;
 });
 
-//_services.AddMoviesPersistenceCache_Redis(config =>
-//{
-//    config.RedisConnection = redisConnection;
-//});
+_services.AddMoviesPersistenceCache_Redis(config =>
+{
+    config.RedisConnection = redisConnection;
+});
 
 
 MyConsole.WriteLine($"Environment: {_env.EnvironmentName}");
@@ -89,7 +89,7 @@ app.MapScalarApiReference(opts =>
 {
     opts
     .WithTitle("Movies API")
-    .WithTheme(ScalarTheme.Mars)
+    .WithTheme(ScalarTheme.Solarized)
     .WithDefaultHttpClient(ScalarTarget.Node, ScalarClient.HttpClient);
 });
 

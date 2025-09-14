@@ -11,8 +11,11 @@ services:
       - "8080:8080"
       - "8081:8081"
     environment:
-      - APP_UID=1000
+      - ConnectionStrings__PgDb=${ConnectionStrings__PgDb}
+      - ConnectionStrings__Redis=${ConnectionStrings__Redis}
+      - APP_UID=${APP_UID}
     restart: on-failure
+
 
   redis-server: 
     image: redis:latest

@@ -4,6 +4,12 @@ services:
     ports:
       - "80:8080"
     environment:
-      - APP_UID=1000
       - ConnectionStrings__PgDb=${ConnectionStrings__PgDb}
+      - ConnectionStrings__Redis=${ConnectionStrings__Redis}
       - APP_UID=${APP_UID}
+      
+  redis-server: 
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    restart: on-failure
