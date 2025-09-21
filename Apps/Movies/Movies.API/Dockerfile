@@ -32,6 +32,18 @@ RUN dotnet publish "./Movies.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+# Install curl so the HEALTHCHECK can call the local health endpoint
+USER root
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
+USER $APP_UID
+
+# Healthcheck: call the API health endpoint
+HEALTHCHECK --interval=5s --timeout=3s --start-period=5s --retries=5 \
+  CMD curl -f http://localhost:8080/health || exit 1
+
 ENTRYPOINT ["dotnet", "Movies.API.dll"]
 
 

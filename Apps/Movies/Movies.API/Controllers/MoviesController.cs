@@ -8,7 +8,8 @@ namespace Movies.API.Controllers;
 [Route("api/[controller]")]
 public class MoviesController(
     IMoviesService _moviesService,
-    IDbMntcService _dbMntcService
+    IDbMntcService _dbMntcService,
+    IConfiguration _configuration
 ) 
     : ControllerBase
 {
@@ -64,5 +65,14 @@ public class MoviesController(
 
 
     //---------------------------//
+
+    // Debug endpoint: returns the merged AllowedOrigins array from IConfiguration
+    [HttpGet("allowed-origins")]
+    public ActionResult<string[]> GetAllowedOrigins()
+    {
+        var origins = _configuration.GetSection("AllowedOrigins").Get<string[]>() ?? [];
+        return Ok(origins);
+    }
+
 
 }

@@ -388,3 +388,4 @@ FodyWeavers.xsd
 # Ignore any ".env" files , they contained environment variables like connection strings or API keys
 # In prod those variables are set in the environment directly. 
 **/.env
+**/**.zip

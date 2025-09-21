@@ -1,11 +1,20 @@
 services:
-  movies-api: 
+  api: 
     image: shaneyboy/movies-api:latest
     ports:
       - "80:8080"
     environment:
       - ConnectionStrings__PgDb=${ConnectionStrings__PgDb}
+      - ConnectionStrings__SqlDb=${ConnectionStrings__SqlDb}
       - ConnectionStrings__Redis=${ConnectionStrings__Redis}
+      - AllowedOrigins__0=${AllowedOrigins__0}
+      - AllowedOrigins__1=${AllowedOrigins__1}
+      - AllowedOrigins__2=${AllowedOrigins__2}
+      - AllowedOrigins__3=${AllowedOrigins__3}
+      - AllowedOrigins__4=${AllowedOrigins__4}
+      - AllowedOrigins__5=${AllowedOrigins__5}
+      - AllowedOrigins__6=${AllowedOrigins__6}
+      - AllowedOrigins__7=${AllowedOrigins__7}
       - APP_UID=${APP_UID}
       
   redis-server: 

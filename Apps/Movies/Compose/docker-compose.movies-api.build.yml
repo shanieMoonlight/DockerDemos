@@ -4,20 +4,20 @@ services:
     ports:
       - "6379:6379"
     restart: on-failure
-
-  movies-api:
+    
+  api: 
     image: movies-api:latest
     build:
-      context: ../..               # <-- include repo root so Directory.Packages.props is available
+      context: ../../..               # <-- include repo root so Directory.Packages.props is available
       dockerfile: Apps/Movies/Movies.API/Dockerfile
       args:
         BUILD_CONFIGURATION: Release
     ports:
-      - "8080:8080"
-      - "8081:8081"
+      - "80:8080"
     environment:
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__PgDb=${ConnectionStrings__PgDb}
+      - ConnectionStrings__SqlDb=${ConnectionStrings__SqlDb}
       - ConnectionStrings__Redis=${ConnectionStrings__Redis}
       - APP_UID=${APP_UID}
       # - ASPNETCORE_URLS=http://+:8080;https://+:8081

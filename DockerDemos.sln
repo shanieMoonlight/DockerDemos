@@ -43,6 +43,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{FC94CF9F-005B-4DE6-8DB2-B7D5D9AAD8AF}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\movies-docker-image.yml = .github\workflows\movies-docker-image.yml
+		.github\workflows\movies-docker-image.yml.original = .github\workflows\movies-docker-image.yml.original
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compose", "Compose", "{A48B920B-6D37-44AA-A50B-8CB1295D068A}"
@@ -61,8 +62,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{09B708BE-1E0
 	ProjectSection(SolutionItems) = preProject
 		Apps\Movies\Compose\API\.env = Apps\Movies\Compose\API\.env
 		Apps\Movies\Compose\API\.env.secrets = Apps\Movies\Compose\API\.env.secrets
+		Apps\Movies\Compose\API\docker-compose.movies-api.build.yml = Apps\Movies\Compose\API\docker-compose.movies-api.build.yml
 		Apps\Movies\Compose\API\docker-compose.yml = Apps\Movies\Compose\API\docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{6091540B-0F94-427D-B32E-D9C8F4056972}"
+	ProjectSection(SolutionItems) = preProject
+		Apps\Movies\Compose\API\nginx\default.conf = Apps\Movies\Compose\API\nginx\default.conf
+		Apps\Movies\Compose\API\nginx\default.explanation.conf = Apps\Movies\Compose\API\nginx\default.explanation.conf
+		Apps\Movies\Compose\API\nginx\default.explanation.MD = Apps\Movies\Compose\API\nginx\default.explanation.MD
+		Apps\Movies\Compose\API\nginx\Dockerfile = Apps\Movies\Compose\API\nginx\Dockerfile
+		Apps\Movies\Compose\API\nginx\Dockerfile.dev = Apps\Movies\Compose\API\nginx\Dockerfile.dev
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{81548DE9-FFF9-4B0E-816E-BC6A749CD3B9}"
+	ProjectSection(SolutionItems) = preProject
+		Apps\Movies\Compose\nginx\default.conf = Apps\Movies\Compose\nginx\default.conf
+		Apps\Movies\Compose\nginx\default.explanation.conf = Apps\Movies\Compose\nginx\default.explanation.conf
+		Apps\Movies\Compose\nginx\Dockerfile = Apps\Movies\Compose\nginx\Dockerfile
+		Apps\Movies\Compose\nginx\Dockerfile.dev = Apps\Movies\Compose\nginx\Dockerfile.dev
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DFA12D43-7F59-4205-BD85-2CFDB66C769C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Tests", "Movies.Tests\Movies.Tests.csproj", "{B85876FD-1AD9-4E80-942D-A1FF4F5BD4C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -118,6 +141,10 @@ Global
 		{5D6A2F18-063D-4378-B2FC-100971CD358B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D6A2F18-063D-4378-B2FC-100971CD358B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D6A2F18-063D-4378-B2FC-100971CD358B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B85876FD-1AD9-4E80-942D-A1FF4F5BD4C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B85876FD-1AD9-4E80-942D-A1FF4F5BD4C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B85876FD-1AD9-4E80-942D-A1FF4F5BD4C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B85876FD-1AD9-4E80-942D-A1FF4F5BD4C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -139,6 +166,10 @@ Global
 		{FC94CF9F-005B-4DE6-8DB2-B7D5D9AAD8AF} = {6BA3094C-0713-49B2-AD94-C1B7F5106570}
 		{A48B920B-6D37-44AA-A50B-8CB1295D068A} = {BEEF7F74-FBBA-47B1-83A5-7180F076CE94}
 		{09B708BE-1E0E-40B2-AD57-2DDF6C14007D} = {A48B920B-6D37-44AA-A50B-8CB1295D068A}
+		{6091540B-0F94-427D-B32E-D9C8F4056972} = {09B708BE-1E0E-40B2-AD57-2DDF6C14007D}
+		{81548DE9-FFF9-4B0E-816E-BC6A749CD3B9} = {A48B920B-6D37-44AA-A50B-8CB1295D068A}
+		{DFA12D43-7F59-4205-BD85-2CFDB66C769C} = {BEEF7F74-FBBA-47B1-83A5-7180F076CE94}
+		{B85876FD-1AD9-4E80-942D-A1FF4F5BD4C8} = {DFA12D43-7F59-4205-BD85-2CFDB66C769C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {498F227E-F743-4CF7-B4DA-552D5B7735E8}

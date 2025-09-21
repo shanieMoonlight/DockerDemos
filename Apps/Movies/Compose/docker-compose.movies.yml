@@ -5,7 +5,7 @@ services:
       - "5001:80" #Nginx Port is 80
     restart: on-failure
 
-  movies-api: 
+  api: 
     image: movies-api:latest
     ports:
       - "8080:8080"
