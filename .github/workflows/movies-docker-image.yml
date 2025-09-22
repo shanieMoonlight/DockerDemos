@@ -62,8 +62,8 @@ jobs:
     - name: Show tags (debug)
       run: |
         echo "===== TAGS OUTPUT (from composite action) ====="
-        echo "${{ steps.docker_build.outputs.tags }}"
-        echo "${{ steps.docker_build.outputs.tags_newline_separated }}"
+        echo "Tags: ${{ steps.docker_build.outputs.tags }}"
+        echo "Tags: ${{ steps.docker_build.outputs.tags_newline_separated }}"
         echo "=============================================="
 
 
