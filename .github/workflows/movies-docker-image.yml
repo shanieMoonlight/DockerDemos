@@ -115,10 +115,10 @@ jobs:
           --arg event_type "$EVENT_TYPE" \
           --arg repository "${{ env.IMAGE_NAME }}" \
           --arg tags "$TAGS" \
-          --arg digest "$DIGEST" \
           --arg commit "${{ github.sha }}" \
           --arg run_id "${{ github.run_id }}" \
-          '{event_type:$event_type, client_payload:{repository:$repository,tags:$tags,digest:$digest,commit:$commit,run_id:$run_id}}')
+          --arg timestamp "$TIMESTAMP" \
+          '{event_type:$event_type, client_payload:{repository:$repository,tags:$tags,commit:$commit,run_id:$run_id,timestamp:$timestamp}}')
 
         # Dispatch to target repository (uses PAT stored in DEPLOY_TOKEN)
         curl -sS -X POST \
