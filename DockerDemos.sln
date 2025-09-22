@@ -5,7 +5,9 @@ VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
 		Directory.Packages.props = Directory.Packages.props
+		Dockerfile.movies.workflow = Dockerfile.movies.workflow
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
@@ -86,6 +88,17 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DFA12D43-7F59-4205-BD85-2CFDB66C769C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Tests", "Movies.Tests\Movies.Tests.csproj", "{B85876FD-1AD9-4E80-942D-A1FF4F5BD4C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "out", "out", "{D9F22F2C-E38C-429F-BACA-E3EBA6C9BBB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{2BB149E8-1C5D-41E3-88EC-1DB5415E12A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Movies", "Movies", "{247B8C9B-73AC-419D-A3AE-A43D4D138DDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Movies.API", "Movies.API", "{1792C756-5629-4622-868B-A3FEE1C87FD5}"
+	ProjectSection(SolutionItems) = preProject
+		out\Apps\Movies\Movies.API\Dockerfile = out\Apps\Movies\Movies.API\Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -170,6 +183,9 @@ Global
 		{81548DE9-FFF9-4B0E-816E-BC6A749CD3B9} = {A48B920B-6D37-44AA-A50B-8CB1295D068A}
 		{DFA12D43-7F59-4205-BD85-2CFDB66C769C} = {BEEF7F74-FBBA-47B1-83A5-7180F076CE94}
 		{B85876FD-1AD9-4E80-942D-A1FF4F5BD4C8} = {DFA12D43-7F59-4205-BD85-2CFDB66C769C}
+		{2BB149E8-1C5D-41E3-88EC-1DB5415E12A6} = {D9F22F2C-E38C-429F-BACA-E3EBA6C9BBB1}
+		{247B8C9B-73AC-419D-A3AE-A43D4D138DDB} = {2BB149E8-1C5D-41E3-88EC-1DB5415E12A6}
+		{1792C756-5629-4622-868B-A3FEE1C87FD5} = {247B8C9B-73AC-419D-A3AE-A43D4D138DDB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {498F227E-F743-4CF7-B4DA-552D5B7735E8}

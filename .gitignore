@@ -382,7 +382,6 @@ FodyWeavers.xsd
 *Secret*
 # **/ClientApp/
 **/NEXT_STEPS.md
-**/ID.OAuth.Facebook/**
 
 
 # Ignore any ".env" files , they contained environment variables like connection strings or API keys

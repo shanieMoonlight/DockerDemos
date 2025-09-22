@@ -13,7 +13,9 @@ public class CertificateTester
             var file = File.ReadAllText(@"C:\Users\Shaneyboy\source\repos\Docker\Https\aspnetapp.pfx");
             Debug.WriteLine("File read successfully.");
             //Debug.WriteLine(file);
+#pragma warning disable SYSLIB0057 // Type or member is obsolete
             var cert = new X509Certificate2(@"C:\Users\Shaneyboy\source\repos\Docker\Https\aspnetapp.pfx", password);
+#pragma warning restore SYSLIB0057 // Type or member is obsolete
             Debug.WriteLine("Password is correct.");
         }
         catch (Exception ex)
