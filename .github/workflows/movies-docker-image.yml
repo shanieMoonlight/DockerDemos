@@ -63,7 +63,6 @@ jobs:
       run: |
         echo "===== TAGS OUTPUT (from composite action) ====="
         echo "Tags: ${{ steps.docker_build.outputs.tags }}"
-        echo "Tags: ${{ steps.docker_build.outputs.tags_newline_separated }}"
         echo "=============================================="
 
 
