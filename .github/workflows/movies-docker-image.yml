@@ -113,13 +113,12 @@ jobs:
         # Build payload (jq ensures JSON safety)
         PAYLOAD=$(jq -n \
           --arg event_type "$EVENT_TYPE" \
-          --arg service "movies-api" \
           --arg repository "${{ env.IMAGE_NAME }}" \
           --arg tags "$TAGS" \
           --arg digest "$DIGEST" \
           --arg commit "${{ github.sha }}" \
           --arg run_id "${{ github.run_id }}" \
-          '{event_type:$event_type, client_payload:{service:$service,repository:$repository,tags:$tags,digest:$digest,commit:$commit,run_id:$run_id}}')
+          '{event_type:$event_type, client_payload:{repository:$repository,tags:$tags,digest:$digest,commit:$commit,run_id:$run_id}}')
 
         # Dispatch to target repository (uses PAT stored in DEPLOY_TOKEN)
         curl -sS -X POST \
