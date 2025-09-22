@@ -45,7 +45,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{FC94CF9F-005B-4DE6-8DB2-B7D5D9AAD8AF}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\movies-docker-image.yml = .github\workflows\movies-docker-image.yml
-		.github\workflows\movies-docker-image.yml.original = .github\workflows\movies-docker-image.yml.original
+		.github\workflows\movies-docker-image.original.yml = .github\workflows\movies-docker-image.original.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compose", "Compose", "{A48B920B-6D37-44AA-A50B-8CB1295D068A}"
@@ -64,8 +64,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{09B708BE-1E0
 	ProjectSection(SolutionItems) = preProject
 		Apps\Movies\Compose\API\.env = Apps\Movies\Compose\API\.env
 		Apps\Movies\Compose\API\.env.secrets = Apps\Movies\Compose\API\.env.secrets
-		Apps\Movies\Compose\API\docker-compose.movies-api.build.yml = Apps\Movies\Compose\API\docker-compose.movies-api.build.yml
-		Apps\Movies\Compose\API\docker-compose.yml = Apps\Movies\Compose\API\docker-compose.yml
+		Apps\Movies\Compose\API\docker-compose.api.yml = Apps\Movies\Compose\API\docker-compose.api.yml
+		Apps\Movies\Compose\API\docker-compose.movies.aws.yml = Apps\Movies\Compose\API\docker-compose.movies.aws.yml
+		Apps\Movies\Compose\API\docker-compose.movies.build_api.yml = Apps\Movies\Compose\API\docker-compose.movies.build_api.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{6091540B-0F94-427D-B32E-D9C8F4056972}"
