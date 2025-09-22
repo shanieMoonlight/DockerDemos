@@ -45,36 +45,6 @@ jobs:
     - name: Publish Movies.API
       run: dotnet publish Apps/Movies/Movies.API/Movies.API.csproj -c Release -o ./out/Apps/Movies/Movies.API --no-build
 
-    # - name: Create runtime .dockerignore in published output
-    #   run: |
-    #     mkdir -p ./out/Apps/Movies/Movies.API
-    #     cat > ./out/Apps/Movies/Movies.API/.dockerignore <<'EOF'
-    #     # Keep published output minimal for Docker build context
-    #     **/.git
-    #     **/.gitignore
-    #     **/.vs
-    #     **/.vscode
-    #     **/obj
-    #     **/bin
-    #     **/*.pdb
-    #     **/*.cache
-    #     Dockerfile*
-    #     EOF
-
-    # - name: Log in to Docker Hub
-    #   uses: docker/login-action@v3
-    #   with:
-    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-
-    # - name: Build and push image (from published output)
-    #   uses: docker/build-push-action@v4
-    #   with:
-    #     context: .
-    #     file: ./Dockerfile.movies.workflow   create a simple runtime Dockerfile in this folder
-    #     push: true
-    #     tags: shaneyboy/movies-api:latest
 
     - name: Log in to Docker Hub
       id: docker_build
