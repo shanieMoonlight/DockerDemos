@@ -110,6 +110,9 @@ jobs:
           exit 1
         fi
 
+        # Generate ISO-8601 UTC timestamp for the payload
+        TIMESTAMP="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
         # Build payload (jq ensures JSON safety)
         PAYLOAD=$(jq -n \
           --arg event_type "$EVENT_TYPE" \
