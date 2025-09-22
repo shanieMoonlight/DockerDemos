@@ -1,14 +1,14 @@
 name: Movies - Docker Image CI
 
 on:
-  push:
-    branches: [ "master" ]
-    paths:
-      - 'Apps/Movies/**'
-  pull_request:
-    branches: [ "master" ]
-    paths:
-      - 'Apps/Movies/**'
+  # push:
+  #   branches: [ "master" ]
+  #   paths:
+  #     - 'Apps/Movies/**'
+  # pull_request:
+  #   branches: [ "master" ]
+  #   paths:
+  #     - 'Apps/Movies/**'
   workflow_dispatch:
 
 jobs:
